@@ -1,0 +1,12 @@
+<?php
+$hostname = "localhost"; //ชื่อโฮสต์
+$user = "porsandee"; //ชื่อผู้ใช้
+$password = "kanchapor"; //รหัสผ่าน
+$user = "porsandee"; //ชื่อผู้ใช้
+$password = "kanchapor"; //รหัสผ่าน
+ $dbname = "meethrd"; //ชื่อฐานข้อมูล
+$objCon=mysql_connect($hostname, $user, $password) or die("cccติดต่อฐานข้อมูลไม่ได้");
+mysql_query("SET NAMES UTF8");
+mysql_select_db($dbname) or die("xxxเลือกฐานข้อมูลไม่ได้");
+
+?>

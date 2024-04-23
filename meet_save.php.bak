@@ -1,0 +1,30 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ThaiCreate.Com PHP & MySQL Tutorial</title>
+</head>
+<body>
+<? include 'connect.php' ?>
+<?php
+
+$objDB = mysql_select_db("meethrd");
+$strSQL = "INSERT INTO meeting ";
+$strSQL .="(id,pname,fname,lname,position_type,position,department,article,vstdate,vstdate2,date_amount,meeting_place,destination_place,meetnature,charges,allowance,stayin,vehicle,register,total_amount,knowledge,province_other,update_date,user_id) ";
+$strSQL .="VALUES ";
+$strSQL .="('".$_POST[""]."','".$_POST["pname_list"]."','".$_POST["txtFname"]."','".$_POST["txtLname"]."','".$_POST["position_list"]."' ";
+$strSQL .=",'".$_POST["txtPosition"]."','".$_POST["department_list"]."','".$_POST["txtArticle"]."' ";
+$strSQL .=",'".$_POST["dateInput"]."','".$_POST["txtDateAmount"]."','".$_POST["txtDateAmount"]."','".$_POST["txtMeetingDepart"]."','".$_POST["destination"]."' ";
+$strSQL .=",'".$_POST["txtMeetnature"]."','".$_POST["radio"]."','".$_POST["txtAllow"]."' ";
+$strSQL .=",'".$_POST["txtStay"]."','".$_POST["txtVehicle"]."','".$_POST["txtRegister"]."' ";
+$strSQL .=",'".$_POST["txtTotal"]."','".$_POST["txtKnow"]."','".$_POST["province"]."','".$_POST["txtDateUpdate"]."','".$_POST["txtUserId"]."') ";
+$objQuery = mysql_query($strSQL);
+
+mysql_close($objConnect);
+?>
+</body>
+</html>
+ <SCRIPT language="JavaScript">
+	alert("บันทึกข้อมูลเรียบร้อยแล้ว");
+window.location='showdata.php';
+
+</SCRIPT> 
+

@@ -1,0 +1,57 @@
+<?php
+	session_start();
+	mysql_connect("localhost","porsandee","kanchapor");
+	mysql_select_db("meethrd");
+	$strSQL = "SELECT * FROM meet_user 
+	
+	WHERE username = '".mysql_real_escape_string($_POST['txtUsername'])."' 
+	and password = '".mysql_real_escape_string($_POST['txtPassword'])."'";
+	mysql_query("SET NAMES UTF8");
+	$objQuery = mysql_query($strSQL);
+	$objResult = mysql_fetch_array($objQuery);
+	if(!$objResult)
+	{
+			echo "Username and Password Incorrect!";
+	}
+	else
+	{		$_SESSION["user_id"] = $objResult["user_id"];
+			$_SESSION["username"] = $objResult["username"];
+			$_SESSION["password"] = $objResult["password"];
+			$_SESSION["pname"] = $objResult["pname"];
+			$_SESSION["fname"] = $objResult["fname"];
+			$_SESSION["lname"] = $objResult["lname"];
+			$_SESSION["position"] = $objResult["position"];
+			$_SESSION["position_type"] = $objResult["position_type"];
+			$_SESSION["department"] = $objResult["department"];
+			$_SESSION["destination_place"] = $objResult["destinatiopn_place"];
+			$_SESSION["status"] = $objResult["status"];
+
+			session_write_close();
+			
+			if($objResult["password"] == "password")
+			{
+				header("location:meet_add2.php");
+			}
+			else
+			{
+				header("location:meet_add2.php");
+			}
+			if($objResult["status"] == "admin")
+			{
+				header("location:showall.php");
+			}
+			else
+			{
+				header("location:meet_add2.php");
+			}
+	}
+	mysql_close();
+?>
+
+<style type="text/css">
+<!--
+body {
+	background-color: #0099CC;
+}
+-->
+</style> 

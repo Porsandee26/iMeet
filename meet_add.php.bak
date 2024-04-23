@@ -1,0 +1,558 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-[if lt IE 7]>      <html class="ie6"> <![endif]-> 
+ <!-[if IE 7]>         <html class="ie7"> <![endif]-> 
+ <!-[if IE 8]>         <html class="ie8"> <![endif]-> 
+ <!-[if IE 9]>         <html class="ie9"> <![endif]-> 
+<!-[if !IE]><!->     <html>             <!-<![endif]-> 
+
+<!-[if lt IE 7]><link rel="stylesheet" type="text/css" media="screen" href="css/ie6.css"  /><![endif]-> 
+
+<!-[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="css/ie7.css"  /><![endif]-> 
+
+<!-[if IE 9]><link rel="stylesheet" type="text/css" media="screen" href="css/ie8.css"  /><![endif]-> 
+
+
+
+<link rel="stylesheet" type="text/css" href="css.css">
+
+<!-[if IE 9]>
+	<link rel="stylesheet" type="text/css" href="ie8.css" />
+<![endif]->
+<title>ThaiCreate.Com PHP & MySQL Tutorial</title>
+	</script>
+   
+<script language="javascript">
+function CheckNum(){
+		if (event.keyCode < 48 || event.keyCode > 57){
+		      event.returnValue = false;
+	    	}
+	}
+</script>
+     
+
+<script type="text/javascript">
+function format(input){
+var num = input.value.replace(/\,/g,'');
+if(!isNaN(num)){
+if(num.indexOf('.') > -1){
+num = num.split('.');
+num[0] = num[0].toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1,').split('').reverse().join('').replace(/^[\,]/,'');
+
+if(num[1].length > 2){
+
+alert('You may only enter two decimals!');
+
+num[1] = num[1].substring(0,num[1].length-1);
+
+}  input.value = num[0]+'.'+num[1];       
+
+} else{ input.value = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1,').split('').reverse().join('').replace(/^[\,]/,'') };
+
+}
+
+else{ alert('You may enter only numbers in this field!');
+
+input.value = input.value.substring(0,input.value.length-1);
+
+}
+}
+
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #CCCCCC;
+}
+-->
+</style>
+</head>
+<link rel="stylesheet" media="all" type="text/css" href="jquery-ui.css" />
+<link rel="stylesheet" media="all" type="text/css" href="jquery-ui-timepicker-addon.css" />
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="datepick/jquery-ui-sliderAccess.js"></script>
+<?
+include 'connect.php' ?>
+<body>
+<form action="meet_save.php" name="frmAdd" method="post" onSubmit="JavaScript:return fncSubmit();">
+  <table width="1024" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bgcolor="#FFFFFF">
+    <tr>
+      <td height="101" colspan="6" bgcolor="#0099CC">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="25">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="38">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><div align="right">คำนำหน้าชื่อ :&nbsp;&nbsp;</div></td>
+      <td><div  class="styled-select"><select name="pname_list" class="select-pname" id="pname_list" >
+        <option value="0" align="center">^__^</option>
+        <?
+	
+	$sql="select * from pname order by id ";
+	//echo"$sql";
+	
+$dbquery = mysql_db_query($dbname, $sql);
+mysql_query("SET NAMES UTF8");
+$num_rows = mysql_num_rows($dbquery);
+$i=0;
+while ($i < $num_rows)
+{
+$result = mysql_fetch_array($dbquery);
+$codedepartreport = $result[0];
+$namedepartreport = $result[1];
+
+echo"<option value='$namedepartreport'>$namedepartreport</option>";
+
+$i++;
+}
+?>
+      </select></div></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="40" height="38">&nbsp;</td>
+      <td width="19">&nbsp;</td>
+      <td width="163">  <div align="right">ชื่อ :&nbsp;&nbsp;</div></td>
+      <td width="268"><div><input type="text" name="txtFname" size="25" id="txtFname" class="inputs" placeholder="กรุณาใส่ชื่อของท่าน">
+      </div></td>
+      <td width="135"><div align="right">นามสกุล :&nbsp;&nbsp;</div></td>
+      <td width="399"><input type="text" name="txtLname" size="25" id="txtLname" class="inputs" placeholder="กรุณาใส่นามสกุลของท่าน"></td>
+    </tr>
+    <tr>
+      <td height="38">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><div align="right">ตำแหน่ง :&nbsp;&nbsp;</div></td>
+      <td valign="middle"><input type="text" name="txtPosition" size="25" id="txtPosition" class="inputs" placeholder="กรุณาระบบตำแหน่งของท่าน"></td>
+      <td valign="middle"><div align="right">หน่วยงาน :&nbsp;&nbsp;</div></td>
+      <td valign="middle"><div class="select-place"></div>
+      <span class="select-place">
+      <select name="department_list" class="listboxdepart" id="department_list">
+        <option value="0">กรุณาเลือกแผนก</option>
+        <?
+	
+	$sql="select * from department order by id ";
+	//echo"$sql";
+	
+$dbquery = mysql_db_query($dbname, $sql);
+mysql_query("SET NAMES UTF8");
+$num_rows = mysql_num_rows($dbquery);
+$i=0;
+while ($i < $num_rows)
+{
+$result = mysql_fetch_array($dbquery);
+$codedepartreport = $result[0];
+$namedepartreport = $result[1];
+
+echo"<option value='$namedepartreport'>$namedepartreport</option>";
+
+$i++;
+}
+?>
+      </select>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </span></td>
+    </tr>
+    <tr>
+      <td height="38">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><div align="right">หัวข้อประชุม :&nbsp;&nbsp;</div></td>
+      <td colspan="3"><input type="text" name="txtArticle" size="70" id="txtArticle" class="inputs-article" placeholder="กรุณาใส่หัวข้อเรื่องการอบรม/ประชุม"></td>
+    </tr>
+    <tr>
+      <td height="38">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><div align="right">วันที่จัด :&nbsp;&nbsp; </div></td>
+      <td colspan="3"><script type="text/javascript">
+
+$(function(){
+	$("#dateInput").datepicker({
+		dateFormat: 'yy-mm-dd'
+	});
+});
+
+</script>
+        <input name="dateInput" style="text-align:center" type="text" id="dateInput" class="inputs-date" value="" size="10" placeholder="คลิกเพื่อเลือกวันที่"/>
+        &nbsp;&nbsp;จำนวนวัน
+        <input type="text" name="txtDateAmount" size="5" id="txtDateAmount" class="inputs-amount" style="text-align:center" onKeyPress="CheckNum()">
+      &nbsp;&nbsp;วัน &nbsp;&nbsp;หน่วยงานที่จัด : &nbsp;
+      <input type="text" name="txtMeetingDepart" size="25" id="txtMeetingDepart" class="inputs" placeholder="กรุณาระบบหน่วยงานที่จัด"></td>
+    </tr>
+    <tr>
+      <td height="37">&nbsp;</td>
+      <td height="37">&nbsp;</td>
+      <td><div align="right">สถานที่จัดประชุม :&nbsp;&nbsp;</div></td>
+      <td><div class="select-place"><select name="txtDestination" class="listboxdepart" id="txtDestination">
+        <option value="0">กรุณาเลือกสถานที่จัดประชุม</option>
+        <?
+	
+	$sql="select * from destination_place order by id ";
+	//echo"$sql";
+	
+$dbquery = mysql_db_query($dbname, $sql);
+mysql_query("SET NAMES UTF8");
+$num_rows = mysql_num_rows($dbquery);
+$i=0;
+while ($i < $num_rows)
+{
+$result = mysql_fetch_array($dbquery);
+$codedepartreport = $result[ID];
+$namedepartreport = $result[1];
+
+echo"<option value='$namedepartreport'>$namedepartreport</option>";
+
+$i++;
+}
+?>
+      </select></div></td>
+      <td> <div align="right">ลักษณะที่ไป :&nbsp;&nbsp;</div></td>
+      <td><div class="select-place"><select name="txtMeetnature" class="listboxdepart" id="txtMeetnature">
+        <option value="0">กรุณาเลือกลักษณะที่ไป</option>
+        <?
+	
+	$sql="select * from meetnature order by id ";
+	//echo"$sql";
+	
+$dbquery = mysql_db_query($dbname, $sql);
+mysql_query("SET NAMES UTF8");
+$num_rows = mysql_num_rows($dbquery);
+$i=0;
+while ($i < $num_rows)
+{
+$result = mysql_fetch_array($dbquery);
+$codedepartreport = $result[0];
+$namedepartreport = $result[1];
+
+echo"<option value='$namedepartreport'>$namedepartreport</option>";
+
+$i++;
+}
+?>
+      </select></div></td>
+    </tr>
+    <tr>
+      <td height="38">&nbsp;</td>
+      <td height="25">&nbsp;</td>
+      <td height="25">&nbsp;</td>
+      <td height="25"><divid="target2" style="display:none">ระบุจังหวัด 
+        <label>
+        <input type="text" name="textfield" id="textfield">
+      </label></div></td>
+      <td height="25">&nbsp;</td>
+      <td height="25">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="32">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td valign="top"><div align="right">ค่าใช้จ่าย :&nbsp;&nbsp;</div></td>
+      <td colspan="3" valign="top"><label>
+        <input type="radio" name="radio" id="no_charges" class="css-checkbox" value="N" checked="True" onClick="showAndHide('target1', 'target1')"  /> <label for="no_charges" class="css-label radGroup1">
+      ไม่ได้เบิกค่าใช้จ่าย
+      </label>
+        <input type="radio" name="radio" id="has_charges" class="css-checkbox" value="Y" onClick="showAndHide('target1', 'target2')"  /> <label for="has_charges" class="css-label radGroup1">
+     เบิกค่าใช้จ่าย</label>
+        <div id="target1" style="display:none" ><div><table width="784" cellspacing="2" cellpadding="2" border="0">
+    <tr>
+      <td width="89">ค่าเบี้ยเลี้ยง</td>
+      <td width="7">&nbsp;</td>
+      <td width="82"><input name="txtAllow" type="text" id="txtAllow" 
+      class="inputs-amount" style="text-align:right;padding-right:2px;"
+       value="0" size="10" onblur='cal(this)' onKeyPress="CheckNum()"/></td>
+      <td width="67"><div align="left">บาท</div></td>
+      <td width="507" rowspan="5"><img src="images/am_car.png" width="337" height="183"></td>
+    </tr>
+    <tr>
+      <td>ค่าที่พัก</td>
+      <td>&nbsp;</td>
+      <td><input name="txtStay" type="text" id="txtStay" class="inputs-amount"
+      style="text-align:right;padding-right:2px;" value="0" size="10"
+     onKeyPress="CheckNum()" onblur='cal(this)'/></td>
+      <td><div align="left">บาท</div></td>
+      </tr>
+    <tr>
+      <td>ค่าพาหนะ</td>
+      <td>&nbsp;</td>
+      <td><input name="txtVehicle" type="text" id="txtVehicle" class="inputs-amount" 
+      style="text-align:right;padding-right:2px;"  value="0" size="10" onblur='cal(this)' onKeyPress="CheckNum()"/></td>
+      <td><div align="left">บาท</div></td>
+      </tr>
+    <tr>
+      <td>ค่าลงทะเบียน</td>
+      <td>&nbsp;</td>
+      <td><input name="txtRegister" type="text" id="txtRegister" class="inputs-amount"
+       style="text-align:right;padding-right:2px;" value="0" size="10" onblur='cal(this)' onKeyPress="CheckNum()"/></td>
+      <td><div align="left">บาท</div></td>
+      </tr>
+    <tr>
+      <td>รวมเงิน</td>
+      <td>&nbsp;</td>
+      <td><input name="txtTotal" type="text" id="txtTotal" class="inputs-amount"
+       style="text-align:right;padding-right:2px;"  value="0" size="10" onKeyPress="CheckNum()"/></td>
+      <td><div align="left">บาท</div></td>
+      </tr>
+  </table></div></div>
+          </div>     </td>
+    </tr>
+    <tr>
+      <td height="25">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td valign="top">&nbsp;</td>
+      <td valign="top">&nbsp;</td>
+      <td></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="54">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td valign="top"><div align="right" valign="top">การเผยแพร่ความรู้ :&nbsp;&nbsp;&nbsp;</div></td>
+      <td colspan="3" valign="top"><div class="select-place">
+        <select name="txtKnow" class="listboxdepart" id="txtKnow">
+          <option value="0">กรุณาเลือกการเผยแพร่ความรู้</option>
+          <?
+	
+	$sql="select * from knowledge order by id ";
+	//echo"$sql";
+	
+$dbquery = mysql_db_query($dbname, $sql);
+mysql_query("SET NAMES UTF8");
+$num_rows = mysql_num_rows($dbquery);
+$i=0;
+while ($i < $num_rows)
+{
+$result = mysql_fetch_array($dbquery);
+$codedepartreport = $result[0];
+$namedepartreport = $result[1];
+
+echo"<option value='$namedepartreport'>$namedepartreport</option>";
+
+$i++;
+}
+?>
+        </select>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="44">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td valign="top">&nbsp;</td>
+      <td colspan="3" valign="top"><input type="submit" name="submit" value="บันทึกข้อมูล" class="button">
+      &nbsp;&nbsp;
+      <input type="reset" name="reset" value="ล้างค่าข้อมูล" class="button">
+&nbsp;      &nbsp;<input type="button" class="button" onClick="window.location.href='showdata.php'" value="ดูข้อมูลรายงาน">
+      <br>
+      <br></td>
+    </tr>
+    <tr>
+      <td height="92" colspan="6" valign="middle" bgcolor="#0099CC"></p>        <div align="center">
+        <p><span class="style1">&nbsp;&nbsp;&nbsp;พัฒนาโดย : กลุ่มงานสารสนเทศทางการแพทย์ โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ ๑๙ </span><br>
+        </p>
+      </div>
+        <p><br>
+        </p></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;  </p>
+</form>
+ 
+  <p>
+    <?
+mysql_close();
+?>
+</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;
+        </p>
+</body>
+</html>
+<script type="text/javascript">
+function showAndHide(idShow, idHide)
+{
+document.getElementById(idShow).style.display = 'block';
+document.getElementById(idHide).style.display = 'none';
+txtAllow.value="0";
+txtStay.value="0";
+txtVehicle.value="0";
+txtRegister.value="0";
+txtTotal.value="0";
+}
+</script>
+<script type='text/javascript'>
+function cal(elm){
+
+ if(elm.value.match(/[^\d]/)){
+  elm.value=0;
+ }else if(elm.value.replace(/(^\s+)|(\s+$)/,'')==''){
+ elm.value=0;
+
+}
+
+var txtAllow=parseInt( document.getElementById('txtAllow').value );
+var txtStay=parseInt( document.getElementById('txtStay').value)
+var txtVehicle=parseInt( document.getElementById('txtVehicle').value )
+var txtRegister=parseInt( document.getElementById('txtRegister').value )
+
+document.getElementById('txtTotal').value=txtAllow+txtStay+txtVehicle+txtRegister;
+}
+</script>
+	<script type="text/javaScript">
+//เติม , (คอมมา)
+function dokeyup( obj )
+{
+  var key = event.keyCode;
+  if( key != 37 & key != 39 & key != 110 )
+  {
+    var value = obj.value;
+    var svals = value.split( "." ); //แยกทศนิยมออก
+    var sval = svals[0]; //ตัวเลขจำนวนเต็ม
+ 
+    var n = 0;
+    var result = "";
+    var c = "";
+    for ( a = sval.length - 1; a >= 0 ; a-- )
+    {
+      c = sval.charAt(a);
+      if ( c != ',' )
+      {
+        n++;
+        if ( n == 4 )
+        {
+          result = "," + result;
+          n = 1;
+        };
+        result = c + result;
+      };
+    };
+ 
+    if ( svals[1] )
+    {
+      result = result + '.' + svals[1];
+    };
+ 
+    obj.value = result;
+  };
+};
+
+//ให้ text รับค่าเป็นตัวเลขอย่างเดียว
+function checknumber()
+{
+  key = event.keyCode;
+  if ( key != 46 & ( key < 48 || key > 57 ) )
+  {
+    event.returnValue = false;
+  };
+};
+</script>
+
+
+<script language="javascript">
+function fncSubmit()
+{
+	if(document.frmAdd.pname_list.value == "0")
+	{
+		alert('กรุณาใส่คำนำหน้าชื่อ');
+		document.frmAdd.pname_list.focus();
+		return false;
+	}	
+	if(document.frmAdd.txtFname.value == "")
+	{
+		alert('กรุณาใส่ชื่อของท่านด้วยครับ');
+		document.frmAdd.txtFname.focus();		
+		return false;
+	}	
+		if(document.frmAdd.txtLname.value == "")
+	{
+		alert('กรุณาใส่นามสกุลของท่านด้วยครับ');
+		document.frmAdd.txtLname.focus();		
+		return false;
+	}
+		if(document.frmAdd.txtPosition.value == "")
+	{
+		alert('กรุณาระบบตำแหน่งในการทำงานของท่าน');
+		document.frmAdd.txtPosition.focus();		
+		return false;
+	}
+		if(document.frmAdd.department_list.value == "0")
+	{
+		alert('กรุณาเลือกหน่วยงานที่ท่านได้ปฎิบัติงาน ณ ปัจจุบัน');
+		document.frmAdd.department_list.focus();		
+		return false;
+	}
+		if(document.frmAdd.txtArticle.value == "")
+	{
+		alert('กรุณาระบุหัวข้อการประชุม / อบรม');
+		document.frmAdd.txtArticle.focus();		
+		return false;
+	}
+		if(document.frmAdd.dateInput.value == "")
+	{
+		alert('กรุณาระบุวันที่');
+		document.frmAdd.dateInput.focus();		
+		return false;
+	}
+		if(document.frmAdd.txtDateAmount.value == "")
+	{
+		alert('กรุณาระบุจำนวนวันที่ประชุม / อบรม');
+		document.frmAdd.txtDateAmount.focus();		
+		return false;
+	}
+		if(document.frmAdd.txtMeetingDepart.value == "")
+	{
+		alert('กรุณาระบุสถานที่จัด');
+		document.frmAdd.txtMeetingDepart.focus();		
+		return false;
+	}
+		if(document.frmAdd.txtDestination.value == "0")
+	{
+		alert('กรุณาระบุเขตสถานที่');
+		document.frmAdd.txtDestination.focus();		
+		return false;
+	}
+	if(document.frmAdd.txtMeetnature.value == "0")
+	{
+		alert('กรุณาระบบลักษณะที่ไป');
+		document.frmAdd.txtMeetnature.focus();		
+		return false;
+	}
+	if(document.getElementById('has_charges').checked && document.frmAdd.txtTotal.value=="0")
+	{
+		alert('กรุณาระบุค่าใช้จ่ายเป็นจำนวนเงิน');
+		document.frmAdd.txtMeetnature.focus();		
+		return false;
+	}
+	
+	if(document.frmAdd.txtKnow.value == "0")
+	{
+		alert('กรุณาระบุการเผยแพร่ความรู้');
+		document.frmAdd.txtKnow.focus();		
+		return false;
+	}
+	document.frmAdd.submit();
+	alert("บันทึกข้อมูลเรียบร้อยแล้ว");
+window.location='showdata.php';
+
+}
+</script>

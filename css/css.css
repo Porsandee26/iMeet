@@ -1,0 +1,70 @@
+
+
+
+.text_score {
+     font-size:26pt;
+     font-weight:bold;
+	border:1px solid #ccc;
+	border-radius: 5px 5px;
+	width: 200px;
+	color:#000;
+padding-bottom:10px;
+padding-left:10px;
+	margin-right:4px;
+	margin-bottom:10px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    text-shadow: 1px 1px 0 rgba(256, 256, 256, 1.0); 
+   background:#dfe9ec;
+	height:35px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.50);
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.50);}
+
+
+.text_warning1{
+    font-size: 12pt;
+    font-weight:bold;
+    width: 120px;
+    color: black;
+    background-color: #61FF8C;
+    float:right;
+    height:30px;
+    padding-left:5px;
+    padding-top:6px;
+    margin-right:130px;
+    align:middle;
+}
+
+.text_warning_inputs1{
+    font-size: 12pt;
+    font-weight:bold;
+    width: 600px;
+    color: black;
+    background-color: #e69934;
+    float:left;
+    height:30px;
+    padding-left:5px;
+margin-top:5px;
+    padding-top:6px;
+    margin-bottom:5px;
+    
+    valign:middle;
+}
+
+.data_detail{
+    font-weight:bold;
+ text-decoration:underline;
+height:20px;
+width:115px;
+font-size:10pt;
+margin-top:5px;
+margin-left:2px;
+padding-top:2px;
+padding-left:5px;
+background-color:#4CAF50;
+display:block;
+color:white;
+align:center;
+}
+
+

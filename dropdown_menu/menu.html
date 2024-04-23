@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+
+/* navigation style */
+#nav{
+	height: 39px;
+	font: 12px Geneva, Arial, Helvetica, sans-serif;
+	background: #3AB3A9;
+	border: 1px solid #30A097;	
+	border-radius: 3px;
+	min-width:500px;
+	margin-left: 0px;
+	padding-left: 0px;
+	margin-top:0px;
+}	
+
+#nav li{
+	list-style: none;
+	display: block;
+	float: left;
+	height: 40px;
+	position: relative;
+	border-right: 1px solid #52BDB5;
+}
+
+#nav li a{
+	padding: 0px 10px 0px 30px;
+	margin: 0px 0;
+	line-height: 40px;
+	text-decoration: none;
+	border-right: 1px solid #389E96;
+	height: 40px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px #66696B;
+}
+
+#nav ul{
+	background: #f2f5f6; 
+	padding: 0px;
+	border-bottom: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+	border-left:1px solid #DDDDDD;
+	border-radius: 0px 0px 3px 3px;
+	box-shadow: 2px 2px 3px #ECECEC;
+	-webkit-box-shadow: 2px 2px 3px #ECECEC;
+    -moz-box-shadow:2px 2px 3px #ECECEC;
+	width:170px;
+}
+#nav .site-name,#nav .site-name:hover{
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px #66696B;
+	font: italic 20px/38px Georgia, "Times New Roman", Times, serif;
+	background: url(dropdown_menu/images/saaraan.png) no-repeat 10px 5px;
+	width: 160px;
+	border-right: 1px solid #52BDB5;
+}
+#nav .site-name a{
+	width: 129px;
+	overflow:hidden;
+}
+#nav li.weblink{
+	background:  url(dropdown_menu/images/weblink.png) no-repeat 0px ;
+	
+}
+#nav li.weblink:hover  {
+		background:  url(dropdown_menu/images/weblink.png) no-repeat 0px  #3BA39B;
+}
+#nav li.facebook{
+	background:  url(dropdown_menu/images/facebook.png) no-repeat 0px ;
+}
+#nav li.facebook:hover  {
+	background:  url(dropdown_menu/images/facebook.png) no-repeat 0px  #3BA39B;
+}
+#nav li.yahoo{
+	background:  url(dropdown_menu/images/yahoo.png) no-repeat 0px ;
+	
+}
+#nav li.yahoo:hover  {
+		background:  url(dropdown_menu/images/yahoo.png) no-repeat 0px  #3BA39B;
+}
+#nav li.google{
+	background:  url(dropdown_menu/images/google.png) no-repeat 0px ;
+}
+#nav li.google:hover  {
+	background:  url(dropdown_menu/images/google.png) no-repeat 0px  #3BA39B;
+}
+#nav li.twitter{
+		background:  url(dropdown_menu/images/twitter.png) no-repeat 0px ;
+}
+#nav li.twitter:hover  {
+		background:  url(dropdown_menu/images/twitter.png) no-repeat 0px  #3BA39B;
+}
+
+#nav li:hover{
+	background: #3BA39B;
+}
+#nav li a{
+	display: block;
+}
+#nav ul li {
+	border-right:none;
+	border-bottom:1px solid #DDDDDD;
+	width:170px;
+	height:39px;
+}
+#nav ul li a {
+	border-right: none;
+	color:#6791AD;
+	text-shadow: 1px 1px 1px #FFF;
+	border-bottom:1px solid #FFFFFF;
+}
+#nav ul li:hover{background:#DFEEF0;}
+#nav ul li:last-child { border-bottom: none;}
+#nav ul li:last-child a{ border-bottom: none;}
+/* Sub menus */
+#nav ul{
+	display: none;
+	visibility:hidden;
+	position: absolute;
+	top: 40px;
+}
+
+/* Third-level menus */
+#nav ul ul{
+	top: 0px;
+	left:200px;
+	display: none;
+	visibility:hidden;
+	border: 1px solid #DDDDDD;
+}
+/* Fourth-level menus */
+#nav ul ul ul{
+	top: 0px;
+	left:170px;
+	display: none;
+	visibility:hidden;
+	border: 1px solid #DDDDDD;
+}
+
+#nav ul li{
+	display: block;
+	visibility:visible;
+}
+#nav li:hover > ul{
+	display: block;
+	visibility:visible;
+}
+</style>
+<!--[if IE 7]>
+<style>
+#nav{
+	margin-left:0px
+}
+#nav ul{
+	left:-40px;
+}
+#nav ul ul{
+	left:130px;
+}
+#nav ul ul ul{
+	left:130px;
+}
+</style>
+<![endif]-->
+<link rel="stylesheet" href="mypopup/reveal.css">	
+	  	
+		<!-- Attach necessary scripts -->
+		<!-- <script type="text/javascript" src="jquery-1.4.4.min.js"></script> -->
+		<script type="text/javascript" src="mypopup/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="mypopup/jquery.reveal.js"></script>
+        <style type="text/css">
+<!--
+.style1 {font-size: 24px}
+.style2 {font-size: 18px; }
+.style3 {font-size: 16px}
+-->
+        </style>
+        <link rel="stylesheet" media="all" type="text/css" href="jquery-ui.css" />
+<link rel="stylesheet" media="all" type="text/css" href="jquery-ui-timepicker-addon.css" />
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="datepick/jquery-ui-sliderAccess.js"></script>
+</head>
+
+<body>
+<ul id="nav">
+<li class="site-name"><a href="#">&nbsp;</a></li>
+    <li class="yahoo"><a href="#">&nbsp;&nbsp;สารสนเทศบนเว็บไซต์</a>
+        <ul>
+        <li><a href="http://118.174.19.148" target="_blank">เว็บไซต์โรงพยาบาล</a>            
+         
+		</li>
+        <li><a href="#">Web Blog</a></li>
+        <li><a href="#">Risk Managment</a></li>
+        <li><a href="#">I-repair</a></li>
+        </ul>
+    </li> 
+    <li class="facebook"><a href="#">&nbsp&nbsp;มุมดาวน์โหลด</a>
+        <ul>
+        <li><a href="#">ดาวน์โหลดเอกสาร</a></li>
+        <li><a href="#">ดาวน์โหลดตัวชี้วัด</a></li>
+        <li><a href="#">ดาวน์โหลดโปรแกรม</a></li>
+        <li><a href="#">เบอร์โทรศัพท์ภายใน</a></li>
+        </ul>
+    </li>
+    <li class="google"><a href="#">&nbsp;&nbsp;เรื่องที่น่าสนใจ</a>
+        <ul>
+        <li><a href="#">ภาพกิจกรรม</a></li>
+        <li><a href="#">ข่าวประชาสัมพันธ์</a></li>
+        <li><a href="#">องค์กรแพทย์</a></li>
+        <li><a href="#">คนดีศรีองค์กร</a></li>
+        <li><a href="#">เรื่องเล่า CQI</a></li>
+        </ul>
+    </li>
+      <li class="weblink"><a href="#">&nbsp;&nbsp;Web Link</a>
+        <ul>
+        <li><a href="#">กระทรวงสาธารณสุข</a></li>
+        <li><a href="#">สสจ.กาญจนบุรี</a></li>
+        <li><a href="#">กรมควบคุมโรค</a></li>
+        <li><a href="#">สปสช.</a></li>
+      
+        </ul>
+    </li>
+    <li class="twitter"><a href="#">&nbsp;&nbsp;About Us</a>
+            <ul>
+                <li><a href="#" class="big-link" data-reveal-id="myModal">ทีมผู้พัฒนา</a></li>
+                 <li><a href="#" class="big-link" data-reveal-id="myModal3">คู่มือการใช้งาน iMeet</a></li>
+                <li><a href="#"  class="big-link" data-reveal-id="myModal2">Develope Version</a></li>
+            </ul>
+    </li>
+    <li class="site-name"><a href="#">&nbsp;</a></li>
+</ul>
+<div id="myModal" class="reveal-modal">
+			<h1 class="style1">ทีมผู้พัฒนาระบบ<br>
+			  <br>
+			</h1>
+			<p align="center" class="style2">1. นายชัยพร จำปานิล ตำแหน่ง : เจ้าพนักงานเครื่องคอมพิวเตอร์<br>
+			</p>
+  <p align="center" class="style2">2. นายเฉลิมพล หวังดี ตำแหน่ง : เจ้าพนักงานเครื่องคอมพิวเตอร์<br>
+  </p>
+			<p align="center" class="style2">3. นายอภิชาติ ชมบุญ ตำแหน่ง : เจ้าพนักงานเครื่องคอมพิวเตอร์<br>
+			    <br>
+		      กลุ่มงานสารสนเทศทางการแพทย์ ( IT )<br>
+		        <br>
+	          โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ 19<br>
+            </p>
+</div>
+<div id="myModal2" class="reveal-modal">
+  <p><span class="style1"><img src="dropdown_menu/images/imeet_version_label.png" width="410" height="37" valign="top"></span><br>
+        <span class="style3">Copy Right : By กลุ่มงานสารสนเทศทางการแพทย์ <br>
+        โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ 19 จังหวัดกาญจนบุรี</span><br>
+  </p>
+</div>
+<div id="myModal3" class="reveal-modal"><span class="style1"><a href="files/imeet_manual.pdf" target="_blank">ดาวน์โหลดคู่มือการใช้งาน</a></span></div>
+</body>
+</html>

@@ -60,13 +60,17 @@ self.close();
     <tr>
       <td height="404"><form action="check_login.php" method="post"  class="login">
  <div align="center"><img src="images/meet_icon.png"  align="middle"  valign="middle">
+
    <input type="text" name="txtUsername" class="login-input" placeholder="กรุณาใส่ Username ในการเข้าใช้งานระบบ" id="txtUsername" >
    <input type="password" name="txtPassword" class="login-input" placeholder="กรุณาใส่ Password ในการเข้าใช้งานระบบ" id="txtPassword">
    <input type="submit" value="เข้าสู่ระบบ" class="login-submit">
    <input name="Reset" type="reset" class="login-submit" value="ยกเลิก">
    
    <input type="button" class="login-submit" value="ปิดโปรแกรม" onClick="sendMsg()" '>
+ <div class="div_version">iMeet Version : V.64.4.23</div>
+ <br><br>
  </div>
+   
 </form></td>
     </tr>
   </table>

@@ -38,7 +38,20 @@ text-align:center;
 padding-top:10px;
 border:1px solid #009999;
 }
-			 
+.div_version{font-size : 14px;
+	color:black;
+	float:left;
+	position:relative;
+	display:block;
+	background-color:#ddd;
+	padding-left:10px;
+	padding-top:5px;
+	padding-right:5px;
+	padding-bottom:5px;
+	border-radius:5px;
+	margin:auto;
+	width:99%;}
+
 .inputs {
     font-size:14px;
 	border:1px solid #ccc;

@@ -67,15 +67,16 @@ self.close();
    <input name="Reset" type="reset" class="login-submit" value="ยกเลิก">
    
    <input type="button" class="login-submit" value="ปิดโปรแกรม" onClick="sendMsg()" '>
- <div class="div_version">iMeet Version : V.64.4.23</div>
+ <div class="div_version">iMeet Version : V.67.4.24</div>
  <br><br>
  </div>
    
 </form></td>
     </tr>
+    <tr><td> <? include "footer.php" ?></td></tr>
   </table>
 
-  <? include "footer.php" ?>
+ 
 </div>
 
 

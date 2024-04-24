@@ -332,11 +332,11 @@ $(function(){
 <script language="javascript" src="js/jquery-1.2.6.min.js"></script>
 <script type="text/javascript">
 $(function(){
-    var max_length=1000; // กำหนดจำนวนตัวอักษร
+    var max_length=1200; // กำหนดจำนวนตัวอักษร
     $("#txtArticle2").keyup(function(){ // เมื่อ textarea id เท่ากับ data  มี event keyup
             var this_length=max_length-$(this).val().length; // หาจำนวนตัวอักษรที่เหลือ
             if(this_length<0){
-                $(this).val($(this).val().substr(0,1000)); // แสดงตามจำนวนตัวอักษรที่กำหนด
+                $(this).val($(this).val().substr(0,1200)); // แสดงตามจำนวนตัวอักษรที่กำหนด
             }else{
                 $("#now_length").html("จำนวนตัวอักษรที่เหลือ "+this_length+" ตัวอักษร");
               // แสดงตัวอักษรที่เหลือ
@@ -548,7 +548,7 @@ echo time();
       <td height="38">&nbsp;</td>
       <td>&nbsp;</td>
       <td valign="middle">&nbsp;</td>
-      <td colspan="3"><div class="text_warning_inputs1">* จำนวนตัวอักษรสูงสุด 1,000 ตัวอักษร <span id="now_length"></span></div></td>
+      <td colspan="3"><div class="text_warning_inputs1">* จำนวนตัวอักษรสูงสุด 1,200 ตัวอักษร <span id="now_length"></span></div></td>
     </tr>
     <tr>
       <td height="38">&nbsp;</td>

@@ -1000,7 +1000,7 @@ echo "<input type='button' class='button' onClick='window.location.href='showall
   <input type="button" class="button" onClick="window.location.href='logout.php'" value="ออกจากระบบ">
   <br>
   <br>
-        <input type="button" class="button" onClick="" value="พัฒนาโดย : กลุ่มงานสารสนเทศทางการแพทย์ โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ 19 โทร : 034-611033 ต่อ 1214 , 1216">
+        <input type="button" class="button" onClick="" value="พัฒนาโดย : กลุ่มงานสารสนเทศทางการแพทย์ โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ 19 โทร : 034-611033 ต่อ 1005 , 1007">
   &nbsp;&nbsp;&nbsp;&nbsp;</p>
       <p><br>
       </p>

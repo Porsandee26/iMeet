@@ -1,0 +1,14 @@
+select pt.hn,pt.pname,pt.fname,pt.lname,pt.pttype,ptt.pcode,ptt.name,ov.inc01,ov.inc02
+,ov.inc03,ov.inc04,ov.inc05,ov.inc06,ov.inc07,ov.inc08,ov.inc09,ov.inc10,ov.inc11
+,ov.inc12,ov.inc13,ov.inc14,ov.inc15,ov.inc16
+from an_stat ov ,patient pt ,ipt ovst ,pttype ptt
+where ov.an=ovst.an and ov.dchdate between "2011-10-01" and  "2012-09-30" and ov.hn=pt.hn 
+ and ov.age_y>= 0 
+ and ov.age_y<= 200 
+ and ( (ov.pdx >= "B50" and ov.pdx <= "B549") 
+ or (ov.dx0 >= "B50" and ov.dx0 <= "B549") 
+ or (ov.dx1 >= "B50" and ov.dx1 <= "B549") 
+ or (ov.dx2 >= "B50" and ov.dx2 <= "B549") 
+ or (ov.dx3 >= "B50" and ov.dx3 <= "B549") 
+ or (ov.dx4 >= "B50" and ov.dx4 <= "B549") 
+ or (ov.dx5 >= "B50" and ov.dx5 <= "B549") )

@@ -989,7 +989,7 @@ echo "<a href='meet_add2.php' style='text-decoration: none;'><input   type='butt
 <a href='showuser.php?dateInput=2023-10-01&dateInput2=2024-09-30&x=25&y=19' 
 style='text-decoration: none;'><input type='button' class='button'  value='รายการเจ้าหน้าที่ในหน่วยงาน'></a>
 <a href='logout.php' style='text-decoration: none;'><input type='button' class='button'  value='ออกจากระบบ'></a><br><br>
-<a href='logout.php' style='text-decoration: none;'><input type='button' class='button'  value='พัฒนาโดย : กลุ่มงานสารสนเทศทางการแพทย์ โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ 19 โทร : 034-611033 ต่อ 1214 , 1216'>
+<a href='logout.php' style='text-decoration: none;'><input type='button' class='button'  value='พัฒนาโดย : กลุ่มงานสารสนเทศทางการแพทย์ โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ 19 โทร : 034-611033 ต่อ 1005 , 1007'>
 ";
 
 exit();
@@ -1010,7 +1010,7 @@ exit();
   <input type="button" class="button" onClick="window.location.href='logout.php'" value="ออกจากระบบ">
   <br>
   <br>
-        <input type="button" class="button" onClick="" value="พัฒนาโดย : กลุ่มงานสารสนเทศทางการแพทย์ โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ 19 โทร : 034-611033 ต่อ 1214 , 1216">
+        <input type="button" class="button" onClick="" value="พัฒนาโดย : กลุ่มงานสารสนเทศทางการแพทย์ โรงพยาบาลสมเด็จพระสังฆราชองค์ที่ 19 โทร : 034-611033 ต่อ 1005 , 1007">
   &nbsp;&nbsp;&nbsp;&nbsp;</p>
       <p><br>
           <br>
